@@ -4,6 +4,16 @@ CREATE TABLE users (
   password varchar(255) NOT NULL
 );
 
+juicebox-dev=# \d users
+                                  Table "public.users"
+  Column  |          Type          |                     Modifiers                      
+----------+------------------------+----------------------------------------------------
+ id       | integer                | not null default nextval('users_id_seq'::regclass)
+ username | character varying(255) | not null
+ password | character varying(255) | not null
+Indexes:
+    "users_pkey" PRIMARY KEY, btree (id)
+    "users_username_key" UNIQUE CONSTRAINT, btree (username)
 
 INSERT INTO users (username, password)
 VALUES
